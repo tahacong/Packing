@@ -29,8 +29,6 @@ namespace Packing
             da.Fill(dt);
             ketnoi.Close();
             return dt;
-
-
         }
         // Truy vấn ( Thêm, Sửa , Xóa) đối với SQL
         public static void ThemSuaXoa(SqlCommand Lenh)
@@ -44,10 +42,9 @@ namespace Packing
         //Kiểm tra đơn hàng theo mã vận đơn
         public static void KiemTraVanDon(DataGridView dgv,string mavandon)
         {
-            dgv.DataSource = TaoBang($"SELECT donggoi.vandon,donggoi.mahang,mathang.tenhang,donggoi.bienthe,donggoi.soluong,bienthe.linkanh " +
+            dgv.DataSource = TaoBang($"SELECT donggoi.vandon,donggoi.mahang,mathang.tenhang,mathang.bienthe,donggoi.soluong,mathang.linkanh " +
                 $"FROM donggoi " +
                 $"LEFT JOIN mathang ON donggoi.mahang=mathang.mahang " +
-                $"LEFT JOIN bienthe ON donggoi.bienthe=bienthe.bienthe AND donggoi.mahang=bienthe.mahang " +
                 $"WHERE donggoi.vandon='{mavandon}'");
             List<string> tencot = new List<string> { "vandon", "mahang", "tenhang", "bienthe", "soluong","linkanh" };
             List<string> newHeader = new List<string> { "Vận Đơn", "SKU", "Tên", "Biến Thể", "Số lượng","Link Ảnh" };
