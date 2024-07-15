@@ -11,7 +11,7 @@ namespace Packing
 {
     internal class TruyVanSQL
     {
-        private static string DuongDan = Properties.Settings.Default.connectString + ";Persist Security Info = True; User ID = sa; Password=Tanhatminh@123";
+        private static string DuongDan = Properties.Settings.Default.connectString + ";Persist Security Info = True; User ID = sa; Password=pass";
         public static SqlConnection TaoKetNoi()
         {
             return new SqlConnection(DuongDan);
